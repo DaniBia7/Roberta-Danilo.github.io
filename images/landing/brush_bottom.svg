@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300">
-  <defs><filter id="blur"><feGaussianBlur stdDeviation="5"/></filter></defs>
-  <g opacity=".82">
-    <path d="M90 145 C130 60, 270 20, 390 60 C510 100, 610 85, 640 150 C660 210, 575 262, 450 252 C315 240, 220 286, 110 242 C40 213, 50 180, 90 145 Z" fill="#ff2f92" opacity=".25" filter="url(#blur)"/>
-    <path d="M120 150 C170 100, 285 75, 370 105 C470 140, 560 120, 600 170 C610 220, 555 245, 425 230 C315 219, 250 250, 170 227 C110 210, 80 175, 120 150 Z" fill="#ff8c1a" opacity=".24" filter="url(#blur)"/>
-    <path d="M130 160 C190 120, 250 118, 340 130 C460 145, 510 150, 560 180 C565 212, 520 225, 430 214 C310 200, 245 225, 175 208 C140 196, 120 181, 130 160 Z" fill="#67d8ff" opacity=".22" filter="url(#blur)"/>
-  </g>
-</svg>
