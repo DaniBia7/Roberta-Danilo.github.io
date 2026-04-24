@@ -1,0 +1,558 @@
+.wedding-invite-landing {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fff8f2 0%, #fff3ec 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+}
+
+/* DECORATIONS */
+.landing-floral,
+.landing-brush {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floral-tl {
+  top: -10px;
+  left: -10px;
+  width: 290px;
+}
+
+.floral-tr {
+  top: -10px;
+  right: -10px;
+  width: 290px;
+}
+
+.floral-bl {
+  bottom: -10px;
+  left: -10px;
+  width: 290px;
+}
+
+.floral-br {
+  bottom: -10px;
+  right: -10px;
+  width: 290px;
+}
+
+.brush-top {
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 520px;
+  opacity: 0.75;
+}
+
+.brush-bottom {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  width: 520px;
+  opacity: 0.7;
+}
+
+/* ENVELOPE WRAPPER */
+.envelope-wrapper {
+  position: relative;
+  width: 640px;
+  height: 440px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.envelope-shadow {
+  position: absolute;
+  width: 470px;
+  height: 46px;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(12px);
+}
+
+.envelope {
+  position: absolute;
+  width: 640px;
+  height: 390px;
+  left: 0;
+  bottom: 18px;
+}
+
+/* ENVELOPE BODY */
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 22%),
+    linear-gradient(135deg, #f3e3d6 0%, #ead4c3 100%);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255,255,255,0.55),
+    inset 0 -18px 24px rgba(120, 76, 48, 0.06);
+  z-index: 1;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.envelope-front::before,
+.envelope-front::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(0,0,0,0.03));
+}
+
+.envelope-front::before {
+  left: 0;
+  clip-path: polygon(0 0, 100% 52%, 0 100%);
+  border-bottom-left-radius: 14px;
+}
+
+.envelope-front::after {
+  right: 0;
+  clip-path: polygon(100% 0, 0 52%, 100% 100%);
+  border-bottom-right-radius: 14px;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.3), rgba(255,255,255,0) 35%),
+    linear-gradient(135deg, #ebd7c7 0%, #ddc0ac 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 2.6s ease;
+  z-index: 5;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+/* LETTER */
+.letter {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: 520px;
+  height: 340px;
+  border-radius: 4px;
+
+  background:
+    linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94)),
+    url("images/landing/paper-texture.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.15),
+    inset 0 0 0 1px rgba(0,0,0,0.05);
+
+  z-index: 2;
+
+  transition:
+    transform 2.8s ease,
+    bottom 2.8s ease;
+}
+
+.letter::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(193, 149, 109, 0.24);
+  border-radius: 4px;
+}
+
+.letter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 22%),
+    radial-gradient(circle at 15% 20%, rgba(255,47,146,0.16) 0, rgba(255,47,146,0.00) 18%),
+    radial-gradient(circle at 82% 18%, rgba(103,216,255,0.16) 0, rgba(103,216,255,0.00) 18%),
+    radial-gradient(circle at 18% 84%, rgba(255,217,61,0.16) 0, rgba(255,217,61,0.00) 16%),
+    radial-gradient(circle at 84% 82%, rgba(199,156,255,0.16) 0, rgba(199,156,255,0.00) 16%);
+  mix-blend-mode: multiply;
+}
+
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 225px;
+  transform: translateX(-50%);
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, #ff77b8 0%, #ff2f92 48%, #cf1d71 100%);
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.18),
+    inset 0 2px 3px rgba(255,255,255,0.35);
+  transition: opacity 0.8s ease;
+}
+
+/* OPEN */
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+  bottom: 132px;
+  transform: translateX(-50%) scale(1.015);
+}
+
+.envelope.open .seal {
+  opacity: 0;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .envelope-wrapper {
+    width: 350px;
+    height: 290px;
+  }
+
+  .envelope {
+    width: 350px;
+    height: 245px;
+  }
+
+  .envelope-shadow {
+    width: 260px;
+  }
+
+  .envelope-flap {
+    height: 138px;
+  }
+
+  .letter {
+    width: 285px;
+    height: 205px;
+  }
+
+  .seal {
+    width: 56px;
+    height: 56px;
+    top: 135px;
+    font-size: 16px;
+  }
+
+  .floral-tl,
+  .floral-tr,
+  .floral-bl,
+  .floral-br {
+    width: 150px;
+  }
+
+  .brush-top,
+  .brush-bottom {
+    width: 260px;
+  }
+}
+
+/* FIORI REALI */
+.floral {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.floral-tl {
+  top: 0;
+  left: 0;
+  width: 280px;
+}
+
+.floral-tr {
+  top: 0;
+  right: 0;
+  width: 280px;
+  transform: scaleX(-1);
+}
+
+.floral-bl {
+  bottom: 0;
+  left: 0;
+  width: 260px;
+  transform: scaleY(-1);
+}
+
+.floral-br {
+  bottom: 0;
+  right: 0;
+  width: 260px;
+  transform: scale(-1, -1);
+}
+
+.seal-img {
+  position: absolute;
+  left: 50%;
+  top: 230px;
+  transform: translateX(-50%);
+  width: 80px;
+  z-index: 6;
+
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.2));
+
+  transition: opacity 0.8s ease;
+}
+
+.envelope.open .seal-img {
+  opacity: 0;
+}
+
+.fh5co-cover,
+#fh5co-header,
+#fh5co-home {
+  background-size: cover !important;
+  background-position: center 35% !important;
+  background-repeat: no-repeat !important;
+}
+
+/* NOME PRINCIPALE */
+.fh5co-cover h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 70px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+
+  /* posizione */
+  transform: translateY(-30px);
+}
+
+/* CERCHI TIMER */
+.simply-countdown > div {
+  background: #9b1b30 !important;
+  box-shadow: 0 8px 20px rgba(155, 27, 48, 0.4);
+}
+
+.simply-countdown > div {
+  background: #ff4fa3 !important;
+}
+
+.btn-primary,
+.btn-default {
+  background: #ff8c1a !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-primary:hover,
+.btn-default:hover {
+  background: #ff4fa3 !important;
+  color: white !important;
+}
+
+#fh5co-logo a {
+  font-family: 'Great Vibes', cursive !important;
+  font-size: 28px;
+}
+
+.display-t h1 {
+  font-family: 'Great Vibes', cursive !important;
+  font-size: 90px !important;
+  letter-spacing: 2px;
+}
+
+/* TIMER */
+.simply-countdown .simply-section {
+  width: 90px !important;
+  height: 90px !important;
+
+  border-radius: 12px !important;
+
+  background: rgba(255, 90, 140, 0.411) !important; /* rosa più acceso */
+
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+
+  border: none !important; /* rimuove bordi */
+
+  box-shadow: none !important;
+
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.simply-countdown .simply-section {
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.simply-countdown {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* NUMERI */
+.simply-countdown .simply-amount {
+  color: white !important;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* TESTO sotto */
+.simply-countdown .simply-word {
+  color: rgba(255,255,255,0.85) !important;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* SAVE THE DATE BUTTON */
+.btn.btn-default,
+.btn.btn-primary,
+a.btn.btn-default,
+a.btn.btn-primary {
+  background: #ffffff !important;
+  color: #9b1b30 !important;
+  border: 2px solid #9b1b30 !important;
+  box-shadow: none !important;
+}
+
+.btn.btn-default:hover,
+.btn.btn-primary:hover,
+a.btn.btn-default:hover,
+a.btn.btn-primary:hover {
+  background: #9b1b30 !important;
+  color: #ffffff !important;
+  border-color: #9b1b30 !important;
+}
+
+/* se il testo dentro il bottone resta invisibile */
+.btn.btn-default span,
+.btn.btn-primary span,
+a.btn.btn-default span,
+a.btn.btn-primary span {
+  color: #9b1b30 !important;
+}
+
+.btn.btn-default:hover span,
+.btn.btn-primary:hover span,
+a.btn.btn-default:hover span,
+a.btn.btn-primary:hover span {
+  color: #ffffff !important;
+}
+
+/* SECOND PAGE */
+#fh5co-couple h2,
+#fh5co-couple .couple h3,
+#fh5co-couple .heart i {
+  font-family: 'Great Vibes', cursive !important;
+  color: rgba(255, 90, 140, 0.411) !important;
+}
+
+#fh5co-couple h2 {
+  font-family: 'Great Vibes', cursive !important;
+  color: rgba(255, 90, 140, 0.95) !important;
+  font-size: 80px !important;
+}
+
+#fh5co-couple .fh5co-heading {
+  margin-bottom: 40px;
+}
+
+#fh5co-couple .couple h3 {
+  font-size: 48px !important;
+}
+
+#fh5co-couple .heart i {
+  font-size: 22px !important;
+}
+
+#fh5co-couple .fh5co-heading h3 {
+  font-size: 42px !important;
+  color: #222 !important;
+  font-family: 'Playfair Display', serif !important;
+}
+
+/* testo grigio sotto */
+#fh5co-couple p,
+#fh5co-couple .couple p {
+  color: #8a8a8a !important;
+}
+
+/* TOGLIE IL CUORE CENTRALE */
+#fh5co-couple .heart {
+  display: none !important;
+}
+
+/* FOTO SECONDA PAGINA */
+#fh5co-couple .couple .groom,
+#fh5co-couple .couple .bride {
+  width: 220px !important;
+  height: 220px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  margin: 0 auto !important;
+  position: relative !important;
+}
+
+#fh5co-couple .couple .groom img,
+#fh5co-couple .couple .bride img {
+  position: absolute !important;
+  max-width: none !important;
+  border-radius: 0 !important;
+  object-fit: unset !important;
+}
+
+/* DANILO */
+#fh5co-couple .couple .groom img.photo-danilo {
+  width: 145% !important;
+  height: auto !important;
+  top: -12% !important;
+  left: -12% !important;
+}
+
+/* ROBERTA */
+#fh5co-couple .couple .bride img.photo-roberta {
+  width: 175% !important;
+  height: auto !important;
+  top: -20% !important;
+  left: -15% !important;
+}
+
+#fh5co-couple .desc-groom h3,
+#fh5co-couple .desc-bride h3 {
+  font-family: 'Great Vibes', cursive !important;
+  color: rgba(255, 90, 140, 0.95) !important;
+  font-size: 44px !important;
+  font-weight: 400 !important;
+}
